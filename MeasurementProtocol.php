@@ -39,12 +39,8 @@ class MeasurementProtocol extends Object
                 ->setProtocolVersion($this->version)
                 ->setAsyncRequest($this->asyncMode);
 
-        if ($this->overrideIp) {
-            if (isset(\Yii::$app->request)) {
-                $request->setIpOverride(\Yii::$app->request->userIP);
-            } else {
-                \Yii::warning('Cant’t access the request component to override the IP address. Is it a web application?');
-            }
+        if ($this->overrideIp && isset(\Yii::$app->request->userIP)) {
+            $request->setIpOverride(\Yii::$app->request->userIP);
         }
 
         if ($this->anonymizeIp) {

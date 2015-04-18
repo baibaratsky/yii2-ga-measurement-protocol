@@ -113,8 +113,8 @@ $request->setEventCategory('Checkout')
 
 Asynchronous Mode
 -----------------
-By default, sending a hit to GA will be a synchronous request, and block the execution of the script until it gets
-a response from the server or timeouts after 100 seconds (throwing a Guzzle exception). However, if you turn
+By default, sending a hit to Google Analytics will be a synchronous request, and block the execution of the script until
+it gets a response from the server or timeouts after 100 seconds (throwing a Guzzle exception). However, if you turn
 the asynchronous mode on in the component config, asynchronous non-blocking requests will be used. 
 ```php
 'asyncMode' => true,
