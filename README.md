@@ -3,9 +3,9 @@ Google Analytics Measurement Protocol for Yii2
 
 >Interact with Google Analytics directly. No need of any JS code. Pure server-side.
 
-Full support for all of the
+Full support for all methods of the
 [Google Analytics Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/)
-methods provided.
+is provided.
 
 
 Installation
@@ -30,9 +30,9 @@ Installation
          'trackingId' => 'UA-XXXX-Y', // Put your real tracking ID here
          
          // These parameters are optional:
-         'useSsl' => true, // If you’d like to use a secure connection to the Google servers
-         'overrideIp' => false, // IP is overrided by default by the user’s one, but you can turn it off
-         'anonymizeIp' => true, // If you want to anonymize the IP address of the sender
+         'useSsl' => true, // If you’d like to use a secure connection to Google servers
+         'overrideIp' => false, // By default, IP is overridden by the user’s one, but you can disable this
+         'anonymizeIp' => true, // If you want to anonymize the sender’s IP address
          'asyncMode' => true, // Enables the asynchronous mode (see below) 
      ],
  ],
@@ -58,7 +58,7 @@ This extension is just a wrapper around the
 ```php
 $request = \Yii::$app->ga->request();
 
-// Build the order data programmatically, including each order product in the payload
+// Build the order data programmatically, each product of the order included in the payload
 // First, general and required hit data
 $request->setClientId('12345678');
 $request->setUserId('123');
@@ -71,7 +71,7 @@ $request->setTransactionId('7778922')
     ->setShipping(15.0)
     ->setCouponCode('MY_COUPON');
     
-// Include a product, only required fields are SKU and Name
+// Include a product, the only required fields are SKU and Name
 $productData1 = [
     'sku' => 'AAAA-6666',
     'name' => 'Test Product 2',
@@ -86,7 +86,7 @@ $productData1 = [
 
 $request->addProduct($productData1);
 
-// You can include as many products as you need this way
+// You can include as many products as you need, this way
 $productData2 = [
     'sku' => 'AAAA-5555',
     'name' => 'Test Product',
@@ -101,10 +101,10 @@ $productData2 = [
 
 $request->addProduct($productData2);
 
-// Don't forget to set the product action, in this case to PURCHASE
+// Don't forget to set the product action, which is PURCHASE in the example below
 $request->setProductActionToPurchase();
 
-// Finally, you must send a hit, in this case we send an Event
+// Finally, you need to send a hit; in this example, we are sending an Event
 $request->setEventCategory('Checkout')
     ->setEventAction('Purchase')
     ->sendEvent();
@@ -113,16 +113,16 @@ $request->setEventCategory('Checkout')
 
 Asynchronous Mode
 -----------------
-By default, sending a hit to Google Analytics will be a synchronous request, and block the execution of the script until
-it gets a response from the server or timeouts after 100 seconds (throwing a Guzzle exception). However, if you turn
-the asynchronous mode on in the component config, asynchronous non-blocking requests will be used. 
+By default, sending a hit to Google Analytics will be a synchronous request, and it will block the execution of
+the script until the latter gets a response from the server or terminates by timeout after 100 seconds (throwing a Guzzle exception).
+However, if you turn the asynchronous mode on in the component config, asynchronous non-blocking requests will be used. 
 ```php
 'asyncMode' => true,
 ```
-This means that we are sending the request and not waiting for a response.
+This means that we are sending the request and not waiting for response.
 The `TheIconic\Tracking\GoogleAnalytics\AnalyticsResponse` object that you will get back has `null` for HTTP status code.
 
-You can also send an asynchronous request even if you haven’t turn it on in the config. Just call `setAsyncRequest(true)`
+You can also send an asynchronous request even if you haven’t turned it on in the config. Just call `setAsyncRequest(true)`
 before sending the hit:
 ```php
 \Yii::$app->ga->request()

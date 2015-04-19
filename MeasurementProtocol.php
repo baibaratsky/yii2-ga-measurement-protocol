@@ -20,7 +20,7 @@ class MeasurementProtocol extends Object
     /** @var bool Use HTTPS instead of plain HTTP */
     public $useSsl = false;
 
-    /** @var bool Override the IP address by the user’s one */
+    /** @var bool Override the IP address by the user’s */
     public $overrideIp = true;
 
     /** @var bool Anonymize the IP address of the sender */
