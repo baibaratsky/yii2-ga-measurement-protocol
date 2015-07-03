@@ -1,6 +1,11 @@
 Google Analytics Measurement Protocol for Yii2
 ==============================================
 
+[![Packagist](https://img.shields.io/packagist/l/baibaratsky/yii2-ga-measurement-protocol.svg)](https://github.com/baibaratsky/yii2-ga-measurement-protocol/blob/master/LICENSE.md)
+[![Dependency Status](https://www.versioneye.com/user/projects/559663cd6166340022000002/badge.svg?style=flat)](https://www.versioneye.com/user/projects/559663cd6166340022000002)
+[![Packagist](https://img.shields.io/packagist/v/baibaratsky/yii2-ga-measurement-protocol.svg)](https://packagist.org/packages/baibaratsky/yii2-ga-measurement-protocol)
+[![Packagist](https://img.shields.io/packagist/dt/baibaratsky/yii2-ga-measurement-protocol.svg)](https://packagist.org/packages/baibaratsky/yii2-ga-measurement-protocol)
+
 >Interact with Google Analytics directly. No need of any JS code. Pure server-side.
 
 Full support for all methods of the
@@ -14,11 +19,11 @@ Installation
 
  To install, either run
  ```
- $ php composer.phar require baibaratsky/yii2-ga-measurement-protocol:1.0.*
+ $ php composer.phar require baibaratsky/yii2-ga-measurement-protocol:1.1.*
  ```
  or add
  ```
- "baibaratsky/yii2-ga-measurement-protocol": "1.0.*"
+ "baibaratsky/yii2-ga-measurement-protocol": "1.1.*"
  ```
  to the `require` section of your `composer.json` file.
 
