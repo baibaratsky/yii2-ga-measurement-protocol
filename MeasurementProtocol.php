@@ -29,7 +29,7 @@ class MeasurementProtocol extends Object
     /** @var bool Use asynchronous requests (not waiting for a response) */
     public $asyncMode = false;
 
-    /** @var bool Use asynchronous requests (not waiting for a response) */
+    /** @var bool Try to set ClientId automatically from `ga_` cookie */
     public $autoSetClientId = false;
 
     /**
