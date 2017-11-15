@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "theiconic/php-ga-measurement-protocol": "2.4.*",
+        "theiconic/php-ga-measurement-protocol": "2.7.*",
         "yiisoft/yii2": "*"
     },
     "autoload": {
