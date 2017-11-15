@@ -39,6 +39,7 @@ Installation
            'overrideIp' => false, // By default, IP is overridden by the user’s one, but you can disable this
            'anonymizeIp' => true, // If you want to anonymize the sender’s IP address
            'asyncMode' => true, // Enables the asynchronous mode (see below) 
+           'autoSetClientId' => true, // Try to set ClientId automatically from the “ga_” cookie (disabled by default)
        ],
    ],
    ```
