@@ -15,33 +15,33 @@ is provided.
 
 Installation
 ------------
-0. The preferred way to install this extension is through [composer](http://getcomposer.org/download/). 
+1. The preferred way to install this extension is through [composer](http://getcomposer.org/download/). 
 
- To install, either run
- ```
- $ php composer.phar require baibaratsky/yii2-ga-measurement-protocol:1.1.*
- ```
- or add
- ```
- "baibaratsky/yii2-ga-measurement-protocol": "1.1.*"
- ```
- to the `require` section of your `composer.json` file.
+   To install, either run
+   ```
+   $ php composer.phar require baibaratsky/yii2-ga-measurement-protocol:1.2.*
+   ```
+   or add
+   ```
+   "baibaratsky/yii2-ga-measurement-protocol": "1.2.*"
+   ```
+   to the `require` section of your `composer.json` file.
 
-0. Add the component configuration in your `main.php` config file:
- ```php
- 'components' => [
-     'ga' => [
-         'class' => 'baibaratsky\yii\google\analytics\MeasurementProtocol',
-         'trackingId' => 'UA-XXXX-Y', // Put your real tracking ID here
-         
-         // These parameters are optional:
-         'useSsl' => true, // If you’d like to use a secure connection to Google servers
-         'overrideIp' => false, // By default, IP is overridden by the user’s one, but you can disable this
-         'anonymizeIp' => true, // If you want to anonymize the sender’s IP address
-         'asyncMode' => true, // Enables the asynchronous mode (see below) 
-     ],
- ],
- ```
+1. Add the component configuration in your `main.php` config file:
+   ```php
+   'components' => [
+       'ga' => [
+           'class' => 'baibaratsky\yii\google\analytics\MeasurementProtocol',
+           'trackingId' => 'UA-XXXX-Y', // Put your real tracking ID here
+
+           // These parameters are optional:
+           'useSsl' => true, // If you’d like to use a secure connection to Google servers
+           'overrideIp' => false, // By default, IP is overridden by the user’s one, but you can disable this
+           'anonymizeIp' => true, // If you want to anonymize the sender’s IP address
+           'asyncMode' => true, // Enables the asynchronous mode (see below) 
+       ],
+   ],
+   ```
 
 
 Usage
