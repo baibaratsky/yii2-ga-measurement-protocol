@@ -29,6 +29,9 @@ class MeasurementProtocol extends Object
     /** @var bool Use asynchronous requests (not waiting for a response) */
     public $asyncMode = false;
 
+    /** @var bool Try to set ClientId automatically from `ga_` cookie */
+    public $autoSetClientId = false;
+
     /**
      * @return Analytics
      */
@@ -47,6 +50,24 @@ class MeasurementProtocol extends Object
             $request->setAnonymizeIp(1);
         }
 
+        if ($this->autoSetClientId) {
+            $clientId = $this->extractClientIdFromCookie();
+            if (!empty($clientId)) {
+                $request->setClientId($clientId);
+            }
+        }
+
         return $request;
+    }
+
+    /**
+     * @return string
+     */
+    protected function extractClientIdFromCookie()
+    {
+        $cookie = \Yii::$app->request->cookies->getValue('ga_', '');
+        $cookieParts = explode('.', $cookie);
+        $clientIdParts =  array_slice($cookieParts, -2);
+        return implode('.', $clientIdParts);
     }
 }
