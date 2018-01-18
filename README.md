@@ -16,7 +16,7 @@ is provided.
 Installation
 ------------
 
-**Note:** Versions in 1.* range are incompatible with PHP 7.2, use 2.* instead.
+**Note:** Versions in 1.* range are incompatible with PHP 7.2, use 2.* instead with Yii 2.0.13+.
 
 1. The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
