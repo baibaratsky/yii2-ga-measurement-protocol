@@ -3,13 +3,13 @@
 namespace baibaratsky\yii\google\analytics;
 
 use TheIconic\Tracking\GoogleAnalytics\Analytics;
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * Class MeasurementProtocol
  * @package baibaratsky\yii\google\analytics
  */
-class MeasurementProtocol extends Object
+class MeasurementProtocol extends BaseObject
 {
     /** @var string Tracking ID (UA-XXXX-Y) */
     public $trackingId;
