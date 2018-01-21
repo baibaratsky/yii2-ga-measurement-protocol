@@ -15,7 +15,10 @@ is provided.
 
 Installation
 ------------
-1. The preferred way to install this extension is through [composer](http://getcomposer.org/download/). 
+
+**Note:** Versions in 1.* range are incompatible with PHP 7.2, use 2.* instead.
+
+1. The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
    To install, either run
    ```
@@ -38,7 +41,7 @@ Installation
            'useSsl' => true, // If you’d like to use a secure connection to Google servers
            'overrideIp' => false, // By default, IP is overridden by the user’s one, but you can disable this
            'anonymizeIp' => true, // If you want to anonymize the sender’s IP address
-           'asyncMode' => true, // Enables the asynchronous mode (see below) 
+           'asyncMode' => true, // Enables the asynchronous mode (see below)
            'autoSetClientId' => true, // Try to set ClientId automatically from the “ga_” cookie (disabled by default)
        ],
    ],
@@ -68,15 +71,15 @@ $request = \Yii::$app->ga->request();
 // First, general and required hit data
 $request->setClientId('12345678');
 $request->setUserId('123');
-    
-// Then, include the transaction data 
+
+// Then, include the transaction data
 $request->setTransactionId('7778922')
     ->setAffiliation('THE ICONIC')
     ->setRevenue(250.0)
     ->setTax(25.0)
     ->setShipping(15.0)
     ->setCouponCode('MY_COUPON');
-    
+
 // Include a product, the only required fields are SKU and Name
 $productData1 = [
     'sku' => 'AAAA-6666',
@@ -121,7 +124,7 @@ Asynchronous Mode
 -----------------
 By default, sending a hit to Google Analytics will be a synchronous request, and it will block the execution of
 the script until the latter gets a response from the server or terminates by timeout after 100 seconds (throwing a Guzzle exception).
-However, if you turn the asynchronous mode on in the component config, asynchronous non-blocking requests will be used. 
+However, if you turn the asynchronous mode on in the component config, asynchronous non-blocking requests will be used.
 ```php
 'asyncMode' => true,
 ```
