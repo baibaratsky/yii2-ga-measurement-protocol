@@ -16,19 +16,25 @@ is provided.
 Installation
 ------------
 
-**Note:** Versions in 1.* range are incompatible with PHP 7.2, use 2.* instead with Yii 2.0.13+.
+**Note:** 
+Versions in 1.* range are incompatible with PHP 7.2, use 2.* with Yii 2.0.13+ instead.
 
 1. The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
    To install, either run
    ```
-   $ php composer.phar require baibaratsky/yii2-ga-measurement-protocol:1.2.*
+   $ php composer.phar require baibaratsky/yii2-ga-measurement-protocol:2.0.*
    ```
    or add
    ```
-   "baibaratsky/yii2-ga-measurement-protocol": "1.2.*"
+   "baibaratsky/yii2-ga-measurement-protocol": "2.0.*"
    ```
    to the `require` section of your `composer.json` file.
+
+   **For PHP versions prior to 7.2, use a release from 1.\* range:**
+   ```
+   "baibaratsky/yii2-ga-measurement-protocol": "1.2.*"
+   ```
 
 1. Add the component configuration in your `main.php` config file:
    ```php
