@@ -29,7 +29,7 @@ class MeasurementProtocol extends BaseObject
     /** @var bool Use asynchronous requests (not waiting for a response) */
     public $asyncMode = false;
 
-    /** @var bool Try to set ClientId automatically from `ga_` cookie */
+    /** @var bool Try to set ClientId automatically from `_ga` cookie */
     public $autoSetClientId = false;
 
     /**
@@ -65,7 +65,7 @@ class MeasurementProtocol extends BaseObject
      */
     protected function extractClientIdFromCookie()
     {
-        $cookie = \Yii::$app->request->cookies->getValue('ga_', '');
+        $cookie = \Yii::$app->request->cookies->getValue('_ga', '');
         $cookieParts = explode('.', $cookie);
         $clientIdParts =  array_slice($cookieParts, -2);
         return implode('.', $clientIdParts);

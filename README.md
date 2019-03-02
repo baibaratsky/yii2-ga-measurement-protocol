@@ -48,7 +48,7 @@ Versions in 1.* range are incompatible with PHP 7.2, use 2.* with Yii 2.0.13+ in
            'overrideIp' => false, // By default, IP is overridden by the user’s one, but you can disable this
            'anonymizeIp' => true, // If you want to anonymize the sender’s IP address
            'asyncMode' => true, // Enables the asynchronous mode (see below)
-           'autoSetClientId' => true, // Try to set ClientId automatically from the “ga_” cookie (disabled by default)
+           'autoSetClientId' => true, // Try to set ClientId automatically from the “_ga” cookie (disabled by default)
        ],
    ],
    ```
@@ -145,4 +145,17 @@ before sending the hit:
     ->setDocumentPath('/mypage')
     ->setAsyncRequest(true)
     ->sendPageview();
+```
+
+Auto set clientId from cookie
+-----------------------------
+If you set `autoSetClientId` to `true` durning component configuration you must disable `enableCookieValidation`.
+You can do this by configuring `request` component. Otherwise, the auto set clientId will not work.
+
+```php
+'components' => [
+    'request' => [
+        'enableCookieValidation' => false,
+    ],
+]
 ```
